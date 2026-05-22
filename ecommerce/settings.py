@@ -80,18 +80,13 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ecommerce_db',
-        'USER': 'postgres',
-        'PASSWORD': 'admin123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-       
-    }
-}
+import dj_database_url
 
+DATABASES = {
+    'default': dj_database_url.parse(
+        'postgresql://ecommerce_2s67_user:hon7yozwb3krkoIFzttg35IAY79SJ7fd@dpg-d889aiuq1p3s73819jqg-a/ecommerce_2s67'
+    )
+}
 
 
 # Password validation
