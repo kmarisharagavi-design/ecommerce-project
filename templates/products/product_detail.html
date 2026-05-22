@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+
+<style>
+
+    body{
+        background: #f8f9fa;
+    }
+
+    .product-card{
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .product-image{
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    .price{
+        color: #28a745;
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+    .btn-pink{
+        background: #ff4da6;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 12px 25px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn-pink:hover{
+        background: #e60073;
+        color: white;
+    }
+
+    .stock-text{
+        color: #777;
+        font-size: 14px;
+    }
+
+    .free-delivery{
+        color: green;
+        font-weight: 500;
+    }
+
+</style>
+
+<div class="container mt-5">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Home</a>
+            </li>
+
+            <li class="breadcrumb-item">
+                {{ product.category }}
+            </li>
+
+            <li class="breadcrumb-item active">
+                {{ product.name }}
+            </li>
+        </ol>
+    </nav>
+
+    <!-- Product Card -->
+    <div class="product-card">
+
+        <div class="row align-items-center">
+
+            <!-- IMAGE -->
+            <div class="col-md-5">
+
+                {% if product.image %}
+                    <img src="{{ product.image.url }}"
+                         class="product-image">
+                {% elif product.image_url %}
+                    <img src="{{ product.image_url }}"
+                         class="product-image">
+                {% else %}
+                    <img src="https://via.placeholder.com/400"
+                         class="product-image">
+                {% endif %}
+
+            </div>
+
+            <!-- DETAILS -->
+            <div class="col-md-7 mt-4 mt-md-0">
+
+                <h2 class="fw-bold">
+                    {{ product.name }}
+                </h2>
+
+                <p class="text-muted">
+                    Category: {{ product.category }}
+                </p>
+
+                <h3 class="price">
+                    ₹{{ product.price }}
+                </h3>
+
+                <p class="free-delivery">
+                    🚚 Free Delivery Available
+                </p>
+
+                <hr>
+
+                <p>
+                    {{ product.description }}
+                </p>
+
+                <p class="stock-text">
+                    Only {{ product.stock }} left in stock!
+                </p>
+
+                <hr>
+
+                <!-- BUTTONS -->
+
+                <a href="/"
+                   class="btn btn-outline-secondary me-2">
+                   ← Back
+                </a>
+
+                <a href="{% url 'add_to_cart' product.id %}"
+                   class="btn btn-pink">
+                   🛒 Add to Cart
+                </a>
+
+                <a href="/checkout/?product_id={{ product.id }}"
+                   class="btn btn-success ms-2">
+                   ⚡ Buy Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

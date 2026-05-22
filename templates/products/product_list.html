@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}MyShop - Best Deals{% endblock %}
+{% block content %}
+
+<!-- Banner -->
+<div class="bg-pink text-white p-3 mb-4 rounded" style="background: linear-gradient(135deg, #f43397, #ff6b6b);">
+    <h4 class="text-white mb-0">🛍️ Best Deals Today! Free Delivery on orders above ₹299</h4>
+</div>
+
+<!-- Categories -->
+<div class="d-flex gap-2 mb-4 flex-wrap">
+    <a href="/" class="btn btn-pink">All</a>
+    {% for category in categories %}
+    <a href="?category={{ category.id }}" class="btn btn-outline-secondary rounded-pill">
+        {{ category.name }}
+    </a>
+    {% endfor %}
+</div>
+
+<!-- Products Grid -->
+<div class="row row-cols-2 row-cols-md-4 g-3">
+    {% for product in products %}
+    <div class="col">
+        <div class="card product-card h-100 shadow-sm border-0">
+           {% if product.image %}
+    <img src="{{ product.image.url }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+{% elif product.image_url %}
+    <img src="{{ product.image_url }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+{% else %}
+    <img src="https://placehold.co/300x200/f43397/white?text={{ product.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+{% endif %}
+            <div class="card-body p-2">
+                <h6 class="card-title text-truncate">{{ product.name }}</h6>
+                <p class="text-success fw-bold mb-1">₹{{ product.price }}</p>
+                <small class="text-muted">Free Delivery</small>
+                <a href="/product/{{ product.pk }}/" class="btn btn-pink btn-sm w-100 mt-2">
+                    View Details
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+</head>
+<body>
+
+<h2>💳 Cash on Delivery Only</h2>
+
+<p>You don’t need to pay online.</p>
+<p>Pay when product is delivered 🚚</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="payment" value="COD">
+
+    <button type="submit" style="
+        background:#ff4da6;
+        color:white;
+        padding:12px 25px;
+        border:none;
+        border-radius:25px;
+        font-size:16px;
+        font-weight:bold;
+    ">
+        Confirm Order (COD)
+    </button>
+</form>
+
+</body>
+</html>

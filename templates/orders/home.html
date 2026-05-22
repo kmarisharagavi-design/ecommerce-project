@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Orders Home{% endblock %}
+
+{% block content %}
+
+<style>
+    .order-container {
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .order-title {
+        font-size: 34px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .order-sub {
+        color: #777;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .btn-pink {
+        background: #ff4da6;
+        color: white;
+        padding: 12px 22px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .btn-pink:hover {
+        background: #e60073;
+        transform: scale(1.05);
+    }
+
+    .btn-outline {
+        border: 2px solid #ff4da6;
+        color: #ff4da6;
+        padding: 12px 22px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .btn-outline:hover {
+        background: #ff4da6;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .card-box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        display: inline-block;
+    }
+</style>
+
+<div class="order-container">
+
+    <div class="card-box">
+
+        <h1 class="order-title">📦 Orders Dashboard</h1>
+        <p class="order-sub">Track your orders, shipping & delivery status</p>
+
+        <a href="/orders/my-orders/" class="btn-pink">My Orders</a>
+        <a href="/orders/success/" class="btn-outline">Success Page</a>
+
+    </div>
+
+</div>
+
+{% endblock %}

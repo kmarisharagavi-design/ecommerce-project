@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div style="text-align:center; margin-top:80px;">
+
+    <h2>✅ Order Placed Successfully</h2>
+    <p>Your order has been confirmed.</p>
+
+    <div style="margin-top:30px;">
+
+        <!-- Track Orders Button -->
+        <a href="{% url 'my_orders' %}" style="
+            display:inline-block;
+            padding:12px 20px;
+            background:black;
+            color:white;
+            border-radius:8px;
+            text-decoration:none;
+            margin-right:10px;
+        ">
+            📦 Track Your Orders
+        </a>
+
+        <!-- Continue Shopping Button -->
+        <a href="{% url 'product_list' %}" style="
+            display:inline-block;
+            padding:12px 20px;
+            background:green;
+            color:white;
+            border-radius:8px;
+            text-decoration:none;
+        ">
+            🛍️ Continue Shopping
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

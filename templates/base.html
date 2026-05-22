@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MyShop{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar { background-color: #f43397; }
+        .navbar-brand, .nav-link { color: white !important; }
+        .btn-pink { background-color: #f43397; color: white; border: none; }
+        .btn-pink:hover { background-color: #d4207f; color: white; }
+        .product-card:hover { transform: scale(1.02); transition: 0.3s; }
+        .nav-dashboard-btn{
+    background:#ff1493;
+    color:white;
+    padding:10px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:16px;
+    transition:0.3s;
+    margin-left:10px;
+}
+
+.nav-dashboard-btn:hover{
+    background:#e60073;
+    transform:scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">🛍️ RagsCart</a>
+            <div class="d-flex gap-3">
+                <a href="/cart/" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <a href="/login/" class="nav-link"><i class="fas fa-user"></i> Login</a>
+                <a href="/dashboard/" class="nav-dashboard-btn">
+    📊 Dashboard
+</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

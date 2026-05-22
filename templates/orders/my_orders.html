@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+
+    <a href="/" class="btn btn-dark mb-3">← Back to Home</a>
+
+    <h2 class="mb-4">📦 My Orders</h2>
+
+    {% for order in orders %}
+
+    <div style="
+        border:1px solid #ddd;
+        padding:15px;
+        margin-bottom:15px;
+        border-radius:10px;
+        background:#f9f9f9;
+    ">
+
+        <h4>🛍️ {{ order.product.name }}</h4>
+
+        <p>📦 Quantity: {{ order.quantity }}</p>
+        <p>📌 Status: <b>{{ order.status }}</b></p>
+
+        <p>🕒 Ordered: {{ order.ordered_at }}</p>
+        <p>🚚 Shipping Date: {{ order.shipping_date }}</p>
+        <p>📬 Delivery Date: {{ order.delivery_date }}</p>
+
+    </div>
+
+    {% empty %}
+        <p>No orders yet</p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
