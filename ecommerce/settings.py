@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "ecommerce-project-2-et26.onrender.com",
+    "ecommerce-project-3-opd8.onrender.com",
     "127.0.0.1",
     "localhost",
 ]
