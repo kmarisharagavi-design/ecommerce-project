@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-hn#vt7_@2dj0ps*37h&^$jf(h&cq2jnw11+4mnz0ka(=3csq+5
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "ecommerce-project-2-et26.onrender.com",
-    "ecommerce-project-3-opd8.onrender.com",
+    ".onrender.com",
     "127.0.0.1",
     "localhost",
 ]
@@ -85,14 +84,17 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os
+from dotenv import load_dotenv
 import dj_database_url
 
+load_dotenv()
+
 DATABASES = {
-    'default': dj_database_url.parse(
-        'postgresql://ecommerce_2s67_user:hon7yozwb3krkoIFzttg35IAY79SJ7fd@dpg-d889aiuq1p3s73819jqg-a/ecommerce_2s67'
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
     )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
